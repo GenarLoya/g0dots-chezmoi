@@ -2,10 +2,10 @@
 
 shutdown="  "
 reboot="  "
-suspend="  "
+lock="  "
 logout="  "
 
-options="$shutdown\n$reboot\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$logout"
 chosen="$(echo -e "$options" | rofi -dmenu -config "$HOME/.config/rofi/powermenu.rasi" -p "Power Menu")"
 
 case "$chosen" in
@@ -15,8 +15,8 @@ case "$chosen" in
   "$reboot")
     ~/.config/rofi/scripts/rofi-confirm "Reboot?" reboot
     ;;
-  "$suspend")
-    ~/.config/rofi/scripts/rofi-confirm "Suspend?" systemctl suspend
+  "$lock")
+    $HOME/.config/hypr/lockbg.sh && hyprlock
     ;;
   "$logout")
     ~/.config/rofi/scripts/rofi-confirm "Logout?" niri msg action quit
