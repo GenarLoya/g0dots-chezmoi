@@ -20,6 +20,21 @@ if ! chezmoi="$(command -v chezmoi)"; then
 	unset chezmoi_install_script bin_dir
 fi
 
+# Install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	echo "Installing oh-my-zsh..."
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
+fi
+
+# Install oh-my-zsh plugins
+echo "Installing oh-my-zsh plugins..."
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/fast-syntax-highlighting"
+git clone https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM}/plugins/fzf-tab"
+
 # Sync and update system with paru
 echo "Updating system..."
 paru -Syu
@@ -61,6 +76,17 @@ temp_dir="${HOME}/.temp/SilentSDDM"
 mkdir -p "$(dirname "$temp_dir")"
 git clone -b main --depth=1 https://github.com/uiriansan/SilentSDDM "$temp_dir"
 cd "$temp_dir" && ./install.sh
+
+echo "Set profile picture for SDDM? [y/N]"
+read -r sddm_pfp
+if [ "$sddm_pfp" = "y" ] || [ "$sddm_pfp" = "Y" ]; then
+	echo "Enter profile picture path:"
+	read -r pfpath
+	if [ -f "$pfpath" ]; then
+		sudo "$temp_dir/change_avatar.sh" "$USER" "$pfpath"
+	fi
+fi
+
 rm -rf "$(dirname "$temp_dir")"
 echo "SilentSDDM theme installed."
 
