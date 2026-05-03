@@ -1,0 +1,17 @@
+@import "color.css";
+
+#waybar {
+    background: #1a1a1a;
+}
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+label.module {
+    color: @primary;
+    padding: 0 0.25em;
+}

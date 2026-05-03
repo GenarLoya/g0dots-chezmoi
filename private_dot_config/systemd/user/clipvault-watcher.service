@@ -1,0 +1,10 @@
+[Unit]
+Description=Clipboard watcher
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wl-paste --watch clipvault store
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

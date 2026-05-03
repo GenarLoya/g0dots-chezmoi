@@ -1,0 +1,27 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "margin-top": 0,
+  "height": 24,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 0,
+  "modules-center": ["clock"],
+  "clock": {
+    "format": " {:%Y-%m-%d 󰇙  %H:%M:%S}",
+    "interval": 1,
+  },
+  "custom/date": {
+    "format": "",
+    "interval": 60,
+  },
+  "custom/separator": {
+    "format": "󰇙",
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
+}
