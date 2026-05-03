@@ -91,7 +91,6 @@ layout {
 // spawn-at-startup "wl-paste --watch clipvault store"
 spawn-at-startup "waybar"
 spawn-at-startup "ignis init"
-spawn-at-startup "~/.config/swaybg/wallpaper-changer.sh"
 spawn-at-startup "wl-paste --watch clipvault store"
 
 

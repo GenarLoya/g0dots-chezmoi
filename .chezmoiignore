@@ -1,1 +1,2 @@
 private_dot_config/systemd/user/*.wants/
+private_dot_config/niri/walls/

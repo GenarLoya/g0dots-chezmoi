@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wall_dir="$HOME/.config/swaybg/walls"
+wall_dir="$HOME/.config/niri/walls"
 cache_dir="$HOME/.cache/thumbnails/bgselector"
 
 mkdir -p "$wall_dir"
@@ -21,8 +21,7 @@ wall_selection=$(ls "$wall_dir" | while read -r A; do echo -en "$A\x00icon\x1f$c
 
 # Set wallpaper and update waybar color
 if [ -n "$wall_selection" ]; then
-    pkill swaybg 2>/dev/null
-    swaybg -i "${wall_dir}/${wall_selection}" -m fill &
+    awww img "${wall_dir}/${wall_selection}"
 else
 	exit 1
 fi
