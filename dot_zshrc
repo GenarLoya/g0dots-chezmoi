@@ -81,3 +81,6 @@ whence docker &> /dev/null && eval "$(docker completion --shell zsh)"
 
 # fastfetch
 whence fastfetch &> /dev/null && fastfetch
+
+# opencode
+export PATH=/home/genarold/.opencode/bin:$PATH
