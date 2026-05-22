@@ -101,7 +101,7 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Dark",
-    "dark": "Vesper Blur",
+    "dark": "Min Dark (Blurred)",
   },
   "theme_overrides": {
     "Ayu Mirage": {
