@@ -1,4 +1,27 @@
 {
+  "language_models": {
+    "openai_compatible": {
+      "Minimax": {
+        "api_url": "https://api.minimax.io/v1",
+        "available_models": [
+          {
+            "name": "MiniMax-M2.7",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+            },
+          },
+        ],
+      },
+    },
+  },
   "cli_default_open_behavior": "new_window",
   "icon_theme": {
     "mode": "dark",
@@ -39,8 +62,8 @@
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o",
+      "provider": "Minimax",
+      "model": "MiniMax-M2.7",
     },
     "model_parameters": [],
   },
