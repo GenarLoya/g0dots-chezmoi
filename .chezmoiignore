@@ -1,5 +1,8 @@
 private_dot_config/systemd/user/*.wants/
 private_dot_config/niri/walls/
+private_dot_config/user-dirs.locale
+private_dot_config/mimeapps.list
+private_dot_config/user-dirs.dirs
 install.sh
 README.md
 AGENTS.md
