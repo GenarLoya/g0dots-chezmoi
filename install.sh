@@ -59,6 +59,7 @@ echo "Installing packages..."
 paru -Sy --noconfirm \
 	niri \
 	ghostty \
+	hyprshot \
 	waybar \
 	rofi \
 	mako \
