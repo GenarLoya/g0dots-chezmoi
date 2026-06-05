@@ -20,6 +20,12 @@ if ! chezmoi="$(command -v chezmoi)"; then
 	unset chezmoi_install_script bin_dir
 fi
 
+# Install zsh
+if ! command -v zsh >/dev/null 2>&1; then
+	echo "Installing zsh..."
+	paru -Sy --noconfirm zsh
+fi
+
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	echo "Installing oh-my-zsh..."
