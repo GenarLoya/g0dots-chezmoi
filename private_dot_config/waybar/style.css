@@ -114,37 +114,37 @@ window#waybar {
 }
 
 #clock {
-    color: #b4a9eb;
+    color: @fg;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
 #cpu {
-    color: #8abae8;
+    color: @fg;
 }
 
 #memory {
-    color: #c9a8eb;
+    color: @fg;
 }
 
 #disk {
-    color: #e8d4a8;
+    color: @fg;
 }
 
 #network {
-    color: #8ed8cc;
+    color: @fg;
 }
 
 #battery {
-    color: #e89898;
+    color: @fg;
 }
 
 #battery.warning {
-    color: #eab882;
+    color: @fg;
 }
 
 #battery.critical {
-    color: #e89898;
+    color: @fg;
     animation-name: blink;
     animation-duration: 1s;
     animation-timing-function: steps(12);
@@ -152,15 +152,15 @@ window#waybar {
 }
 
 #pulseaudio {
-    color: #cba6f7;
+    color: @fg;
 }
 
 #temperature {
-    color: #eab882;
+    color: @fg;
 }
 
 #backlight {
-    color: #d8a8d8;
+    color: @fg;
 }
 
 #tray {
@@ -180,11 +180,11 @@ window#waybar {
 
 #custom-arch {
     font-size: 15px;
-    color: #5ca8d4;
+    color: @fg;
 }
 
 #custom-player-display {
-    color: #d8a8d8;
+    color: @fg;
 }
 
 .hidden {

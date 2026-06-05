@@ -53,22 +53,15 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        on
-
-        width 1
-
-        active-color "#7fc8ff"
-
-        inactive-color "#505050"
+        off
     }
 
     border {
-        off
+        on
 
-        width 4
-        active-color "#ffc87f"
+        width 1
+        active-color "#df6124"
         inactive-color "#505050"
-
         urgent-color "#9b0000"
 
     }
@@ -132,8 +125,13 @@ window-rule {
 }
 
 window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+
+window-rule {
     match app-id="zen"
-    geometry-corner-radius 0.0
+    geometry-corner-radius 5
     clip-to-geometry true
 
     background-effect {
