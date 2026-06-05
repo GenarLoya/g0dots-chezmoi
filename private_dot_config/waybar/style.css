@@ -1,47 +1,116 @@
-window#waybar {
-    background: transparent;
-    color: #e6e9ef;
-    transition: background-color 0.3s;
-}
+@define-color bg rgba(24, 24, 32, 0.75);
+@define-color fg #e6e9ef;
+@define-color fg2 #df6124;
+@define-color border alpha(@fg, 0.1);
 
 * {
-    font-family: "Inter", "Segoe UI", sans-serif;
-    transition: background-color 0.2s ease-out;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+    padding: 0;
+    min-height: 0;
+    font-family: "JetBrains Mono Nerd Font", monospace;
     font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-out;
+    text-shadow:
+        0 0 5px #1b1b1b,
+        0 0 5px #2b2b2b,
+        0 0 5px #3d3d3d,
+        0 0 5px #100c08;
 }
 
-.modules-center,
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
 .modules-left,
 .modules-right {
-    background: transparent;
+    border-radius: 3px;
+    margin: 1px 4px 2px 4px;
+    background-color: @bg;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+    min-height: 30px;
     padding: 0px 6px;
 }
 
+#workspaces {
+    background-color: @bg;
+    margin: 5px;
+    padding: 0px;
+    border-radius: 3px;
+}
+
+#workspaces button {
+    all: initial;
+    border: 1px solid alpha(@fg, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 1px 35px;
+    background-color: alpha(@fg, 0.75);
+    margin: 0px 1px;
+    opacity: 1;
+    color: @fg;
+    font-size: 0px;
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    color: @fg2;
+    border: 1.5px solid @fg2;
+    opacity: 1;
+    font-size: 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+#workspaces button.empty {
+    opacity: 0.45;
+    font-size: 0px;
+    color: @fg;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+#workspaces button.empty.active {
+    font-size: 0px;
+    color: @fg;
+    opacity: 1;
+}
+
+#workspaces button:hover {
+    background: @fg;
+    color: @bg;
+    opacity: 1;
+}
+
+#tray,
 #clock,
-#battery,
 #cpu,
 #memory,
-#disk,
-#temperature,
+#battery,
 #backlight,
 #network,
+#bluetooth,
 #pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#language,
-#mpd,
+#disk,
+#temperature,
 #custom-arch,
-#custom-player-display {
-    background: rgba(24, 24, 32, 0.75);
-    padding: 3px 12px;
-    border-radius: 8px;
-    margin: 3px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+#custom-player-display,
+#custom-separator {
+    min-width: 25px;
+    margin: 5px 3px;
+    padding: 0 6px;
+    border-bottom: 2px solid @fg2;
+}
+
+#custom-separator {
+    opacity: 0.2;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: alpha(@fg, 0.5);
+    border-bottom: none;
 }
 
 #clock {
@@ -94,96 +163,48 @@ window#waybar {
     color: #d8a8d8;
 }
 
-#language {
-    color: #e8d4a8;
-}
-
 #tray {
-    color: #cdd6f4;
+    background-color: transparent;
+    padding: 0;
+    padding-top: 1px;
 }
 
-#workspaces {
-    background: rgba(24, 24, 32, 0.75);
-    padding: 3px 6px;
-    border-radius: 8px;
-    margin: 3px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#workspaces button {
-    background: transparent;
-    font-weight: 600;
-    color: #5c6080;
-    border: none;
-    border-radius: 6px;
-    padding: 0 6px;
-    font-size: 14px;
-    margin: 2px 2px;
-    transition:
-        color 0.2s,
-        text-shadow 0.2s;
-}
-
-#workspaces button.active {
-    background: transparent;
-    color: #8abae8;
-    text-shadow: 0 0 8px rgba(138, 186, 232, 0.5);
-}
-
-#workspaces button.urgent {
-    background: transparent;
-    color: #e89898;
-    text-shadow: 0 0 8px rgba(232, 152, 152, 0.5);
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-}
-
-#workspaces button:hover {
-    background: transparent;
-    color: #9aa4c8;
-    text-shadow: 0 0 6px rgba(154, 164, 200, 0.4);
-    box-shadow: none;
-}
-
-#workspaces button.urgent:hover {
-    background: transparent;
-    color: #f38ba8;
-    box-shadow: none;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @bg;
 }
 
 #custom-arch {
     font-size: 15px;
     color: #5ca8d4;
-    transition:
-        color 0.2s,
-        text-shadow 0.2s;
-}
-
-#custom-arch:hover {
-    color: #6ab8e4;
-    text-shadow: 0 0 8px rgba(92, 168, 212, 0.5);
 }
 
 #custom-player-display {
     color: #d8a8d8;
 }
 
+.hidden {
+    opacity: 0;
+}
+
+tooltip {
+    padding: 4px;
+    background: @bg;
+    font-size: 11px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+tooltip label {
+    color: @fg;
+}
+
 @keyframes blink {
     to {
         opacity: 0.4;
     }
-}
-
-tooltip {
-    background: #1e1e2e;
-    color: #cdd6f4;
-    border-radius: 8px;
-    border: 1px solid #313244;
-    padding: 6px;
-}
-
-tooltip label {
-    color: #cdd6f4;
 }
