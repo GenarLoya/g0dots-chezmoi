@@ -282,5 +282,5 @@ Mod+Shift+Escape { spawn "~/.config/rofi/scripts/rofi-powermenu"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+S { spawn-sh "hyprshot -m region"; }
+    Mod+S { spawn-sh "hyprshot -m region --clipboard"; }
 }
